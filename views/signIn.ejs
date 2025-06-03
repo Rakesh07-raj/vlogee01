@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partial/head") %>
+    <title>Vlogee - Sign In</title>
+    <!-- Bootstrap Icons -->
+  </head>
+
+  <body class="bg-light">
+    <%- include("./partial/nav") %>
+
+    <div class="container">
+      <div
+        class="row justify-content-center align-items-center"
+        style="min-height: 88vh"
+      >
+        <div class="col-md-8 col-lg-5">
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <i
+                  class="bi bi-person-circle text-primary"
+                  style="font-size: 3.5rem"
+                ></i>
+                <h2 class="mt-3 mb-2">Welcome back</h2>
+                <p class="text-muted">
+                  Please enter your credentials to sign in
+                </p>
+              </div>
+
+              <% if (locals.error) { %>
+              <div
+                class="alert alert-danger text-center py-2 mb-3"
+                role="alert"
+              >
+                <%= error %>
+              </div>
+              <% } %>
+
+              <form action="/user/signIn" method="post">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email :</label>
+                  <div class="input-group">
+                    <span class="input-group-text">
+                      <i class="bi bi-envelope"></i>
+                    </span>
+                    <input
+                      type="email"
+                      name="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="example01@gmail.com"
+                      required
+                    />
+                  </div>
+                  <div class="form-text">
+                    We'll never share your email with anyone else.
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="password" class="form-label">Password :</label>
+                  <div class="input-group">
+                    <span class="input-group-text">
+                      <i class="bi bi-lock"></i>
+                    </span>
+                    <input
+                      type="password"
+                      name="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="ra1********"
+                      required
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div class="d-grid mb-3">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Sign In
+                  </button>
+                </div>
+
+                <div class="text-center">
+                  <p class="text-muted">
+                    Don't have an account?
+                    <a href="/user/signUp" class="text-decoration-none"
+                      >Sign up</a
+                    >
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./partial/script") %>
+
+    <script>
+      if (window.location.search) {
+        window.history.replaceState(
+          {},
+          document.title,
+          window.location.pathname
+        );
+      }
+    </script>
+  </body>
+</html>
