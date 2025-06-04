@@ -6,7 +6,6 @@ const handleViewBlog = async (req, res) => {
     const id = req.params.id;
     const blog = await Blog.findOne({ _id: id }).populate("createdBy");
     const comments = await Comment.find({ blogId: id }).populate('createdBy');
-    console.log(blog)
     const user = req.user;
     res.render("blog", { blog, user, comments });
 };

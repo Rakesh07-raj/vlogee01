@@ -145,7 +145,7 @@
           locals.comments.forEach(comment => { %>
           <div class="card mb-3">
             <div class="card-body">
-              <div class="d-flex">
+              <div class="d-flex w-100">
                 <img
                   src="<%= comment.createdBy?.profileImg || '/images/userProfileImg.png' %>"
                   alt="<%= comment.createdBy?.username %>"
@@ -154,16 +154,17 @@
                   height="40"
                   style="object-fit: cover"
                 />
-                <div>
-                  <div class="d-flex align-items-center mb-1">
+                <div class="w-100 flex-grow-1">
+                  <div
+                    class="d-flex align-items-center mb-1 justify-content-between"
+                  >
                     <strong class="me-2"
                       ><%= comment.createdBy?.username || "User" %></strong
                     >
-                    <small class="text-muted">
+                    <small class="text-muted justify-content-end">
                       <%= new
                       Date(comment?.createdAt).toLocaleDateString('en-US', {
-                      year: 'numeric', month: 'short', day: 'numeric', hour:
-                      '2-digit', minute: '2-digit' }) %>
+                      year: 'numeric', month: 'short', day: 'numeric' }) %>
                     </small>
                   </div>
                   <p class="mb-0"><%= comment.content %></p>
