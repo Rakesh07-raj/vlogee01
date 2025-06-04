@@ -1,19 +1,10 @@
 const { Router } = require('express');
-const path = require("path")
 const multer = require('multer');
+const { storage } = require('../utils/cloudinary');
 const { handleSignup, handleSignin } = require('../controllers/user')
+
+
 const router = Router();
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, path.resolve("./public/images"));
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + file.originalname)
-    }
-
-})
-
 const upload = multer({ storage })
 
 router.get("/signup", (req, res) => {

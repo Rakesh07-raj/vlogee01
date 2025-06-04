@@ -7,8 +7,9 @@ const handleSignup = async (req, res) => {
     let userData = { username, email, password };
 
     if (req.file) {
-        userData.profileImg = `/images/${req.file.filename}`;
-        console.log(req.file)
+        userData.profileImg = req.file.path;
+    } else {
+        userData.profileImg = "https://res.cloudinary.com/vlogeeimages/image/upload/vlogee/userProfileImg.png"
     }
 
     const user = await User.create(userData);
