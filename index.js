@@ -6,7 +6,7 @@ const blogRoute = require("./routes/blog");
 const cookieParser = require('cookie-parser')
 
 
-const { checkAutorization, checkAuthentication } = require("./middlewares/auth");
+const { checkAuthentication } = require("./middlewares/auth");
 const Blog = require('./models/blog');
 
 const app = express();

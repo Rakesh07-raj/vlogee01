@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <%- include("./partial/head") %>
-    <title>Vlogee - Modern Blog Platform</title>
+    <title>Blogee - Modern Blog Platform</title>
     <style>
       :root {
         --primary: #2563eb;
@@ -45,23 +45,18 @@
 
       /* Header */
 
-      /* Hero */
       .hero {
-        padding: 4rem 0;
-        text-align: center;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 4vh;
       }
 
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        font-weight: 800;
+      .bg-primary {
+        background-color: #2563eb !important;
       }
-
-      .hero p {
-        font-size: 1.125rem;
-        color: var(--gray);
-        max-width: 600px;
-        margin: 0 auto 2rem;
+      .z-1 {
+        z-index: 1;
       }
 
       /* Blog Grid */
@@ -69,7 +64,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 2rem;
-        padding: 2rem 0;
+        padding: 1rem 0;
       }
 
       .blog-card {
@@ -78,7 +73,7 @@
         overflow: hidden;
         box-shadow: var(--shadow-md);
         transition: var(--transition);
-        height: 430px;
+        height: 440px;
       }
 
       .card-image {
@@ -150,20 +145,46 @@
     <%- include("./partial/nav") %>
 
     <main>
-      <section class="hero">
-        <div class="container">
-          <h1>Discover Great Content</h1>
-          <p>
-            Find insightful articles and stories from creators around the world
-          </p>
-          <a href="/blog/add-blog" class="btn btn-primary">Create Articles</a>
+      <section
+        class="hero position-relative mt-3 rounded-2 py-5 container"
+        style="
+          background: linear-gradient(
+              rgba(20, 20, 30, 0.5),
+              rgba(20, 20, 30, 0.2)
+            ),
+            url('https://plus.unsplash.com/premium_photo-1683417272601-dbbfed0ed718?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJvb2slMjBhbmQlMjBwZW58ZW58MHx8MHx8fDA%3D')
+              no-repeat center center/cover;
+        "
+      >
+        <div class="container position-relative py-5 z-1">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h1
+                class="display-4 fw-bold mb-4 text-white"
+                style="
+                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                    'Trebuchet MS', sans-serif;
+                "
+              >
+                Discover Great Content
+              </h1>
+              <p class="lead mb-4 text-black-50">
+                Find insightful articles and stories from creators around the
+                world
+              </p>
+              <a
+                href="/blog/add-blog"
+                class="btn btn-lg px-4 py-2 fs-5 fw-bold text-white bg-primary"
+              >
+                Create Articles
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="container">
-        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 700">
-          Latest Posts
-        </h2>
+        <h2 style="font-size: 1.5rem">Latest Posts :</h2>
 
         <div class="blog-grid">
           <% blogs.forEach(blog => { %>
@@ -198,7 +219,7 @@
 
     <footer>
       <div class="container">
-        <p>© 2023 BlogPlatform. All rights reserved.</p>
+        <p>© 2025 Blogee. All rights reserved.</p>
       </div>
     </footer>
 
