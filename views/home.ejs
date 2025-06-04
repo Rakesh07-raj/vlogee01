@@ -176,7 +176,7 @@
 
               <p class="card-excerpt"><%= blog.content %></p>
               <div class="card-footer">
-                <span>Author : <%= blog.createdBy.username %></span>
+                <span>Author : <%= blog.createdBy?.username %></span>
                 <%= new Date(blog.createdAt).toLocaleDateString('en-US', { day:
                 '2-digit', month: 'short', year: 'numeric' }) %>
               </div>

@@ -80,9 +80,9 @@
         <h1 class="blog-title"><%= blog.title %></h1>
 
         <p class="blog-meta">
-          By <strong><%= blog.createdBy.username %></strong> | <%= new
-          Date(blog.createdAt).toLocaleDateString() %> | <%= blog.readingTime ||
-          '3 min read' %>
+          By <strong><%= blog.createdBy?.username || "User" %></strong> | <%=
+          new Date(blog.createdAt).toLocaleDateString() %> | <%=
+          blog.readingTime || '3 min read' %>
         </p>
 
         <% if (blog.coverImg) { %>

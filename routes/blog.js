@@ -1,16 +1,11 @@
 const { Router } = require('express');
 const multer = require('multer');
-const Blog = require("../models/blog");
-const Comment = require("../models/comments");
+const { storage } = require('../utils/cloudinary');
 const { requireLogin } = require('../middlewares/auth');
 const { handleViewBlog, handleAddBlog, handleGetEditBlog, handlePostEditBlog, handleDeleteBlog, handleBlogComment } = require('../controllers/blog');
 const router = Router();
 
 // Multer config
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => cb(null, "./public/uploads"),
-    filename: (req, file, cb) => cb(null, Date.now() + file.originalname),
-});
 const upload = multer({ storage });
 
 

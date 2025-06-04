@@ -1,3 +1,4 @@
+require('dotenv').config(); // Load .env
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = require("./routes/user");

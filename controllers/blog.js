@@ -17,7 +17,7 @@ const handleAddBlog = async (req, res) => {
         title,
         content,
         createdBy: req.user._id,
-        coverImg: `/uploads/${req.file.filename}`
+        coverImg: req.file.path
     });
     res.redirect(`/blog/${blog._id}`);
 }
@@ -30,7 +30,7 @@ const handleGetEditBlog = async (req, res) => {
 
 const handlePostEditBlog = async (req, res) => {
     const { title, content } = req.body;
-    const coverImg = req.file ? `/uploads/${req.file.filename}` : req.body.oldCoverImg;
+    const coverImg = req.file ? req.file.path : req.body.oldCoverImg;
     const blog = await Blog.findOneAndUpdate(
         { _id: req.params.id },
         { title, content, coverImg }
